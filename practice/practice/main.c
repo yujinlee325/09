@@ -8,25 +8,53 @@
 
 #include <stdio.h>
 
-#define SIZE 5
+#define ROWS 3
+#define COLS 3
+
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS]);
+void printMatrix(int A[][COLS]);
 
 int main(int argc, const char * argv[]) {
-    int i;
-    int grade[SIZE];
-    int score[SIZE];
+   
+    int A[ROWS][COLS] = {
+        {2,3,0},
+        {8,9,1},
+        {7,0,5} };
+    
+    int B[ROWS][COLS] = {
+        {1,0,0},
+        {0,1,0},
+        {0,0,1} };
+    
+    int C[ROWS][COLS];
+    
+    addMatrix(A,B,C);
+    printMatrix(C);
+    
+    return 0;
+}
 
-    for(i=0;i<SIZE;i++)
+
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS])
+{
+    int i, j;
+    
+    for(i=0;i<ROWS;i++)
+        for(j=0;j<COLS;j++)
+            C[i][j] =A[i][j]+B[i][j];
+    
+}
+
+void printMatrix(int A[][COLS])
+{
+    int i, j;
+    
+    for(i=0;i<ROWS;i++)
     {
-        grade[1] = rand()%100+1;
+        for(j=0;j<COLS;j++)
+            printf("%d", A[i][j]);
+        printf("\n");
     }
     
-    for(i=0;i<SIZE;i++)
-        score[i] = grade[i];
     
-    for(i=0;i<SIZE;i++)
-        printf("score[%d] %i (i)\n", i, score[i]);
-    
-  
-
-    return 0;
 }
