@@ -15,10 +15,14 @@ int main(int argc, const char * argv[]) {
     int sum;
     int grade[SIZE];
     
-    printf("5명의 점수를 입력하세요.\n");
+    printf("input %i scores\n", SIZE );
     
+    sum = 0;
     for(i=0;i<SIZE;i++)
+    {
         scanf("%d",&grade[i]);
+        sum += grade[1];
+    }
     
     for(i=0;i<SIZE;i++)
         printf("grade[%d] = %d\n", i, grade[i]);
